@@ -409,7 +409,14 @@ console.log(newestMovie());
   fornito.
 */
 let countMovies = () => {
-  console.log(movies.length);
+  let onlyMoviesArr = [];
+
+  for (const key in movies) {
+    if (movies[key].Type === "movie") {
+      onlyMoviesArr.push(movies[key]);
+    }
+  }
+  console.log(onlyMoviesArr.length);
 };
 countMovies();
 /* ESERCIZIO 14
@@ -429,11 +436,13 @@ let onlyInLastMillennium = movies.filter((val) => {
 });
 console.log(onlyInLastMillennium);
 /* ESERCIZIO 16
-  Scrivi una funzione chiamata "sumAllTheYears" che ritorna la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array "movies" fornito.
+  Scrivi una funzione chiamata "sumAllTheYears" che ritorna la 
+  somma di tutti gli anni in cui sono stati prodotti i film 
+  contenuti nell'array "movies" fornito.
 */
 let initialValue = 0;
 let sumAllTheYears = movies.reduce(
-  (num, currentValue) => num + parseInt(currentValue.Year),
+  (num, currentValue) => num + Number(currentValue.Year),
   initialValue
 );
 console.log(sumAllTheYears);
@@ -521,7 +530,7 @@ let tdPrint = () => {
   let td = document.querySelectorAll("td");
   for (const key in td) {
     console.log(td[key].innerText);
-    //non ho idea del perche mi stampi 6 undefined,
+    //non mi spiego perche mi stampi anche 6 undefined,
     //con getElementsByTagName mi stampa invece 3 undefined???????
   }
 };
@@ -582,7 +591,7 @@ trAddClass();
   ***
 
 */
-let treeHeight = 5;
+let treeHeight = 10;
 let halfTree = (num) => {
   let leaf = "*";
   for (i = 0; i < num; i++) {
