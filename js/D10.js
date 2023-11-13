@@ -10,17 +10,24 @@ REGOLE
 // JS Basics
 
 /* ESERCIZIO A
-  Crea una variabile chiamata "sum" e assegnaci il risultato della somma tra i valori 10 e 20.
+  Crea una variabile chiamata "sum" e assegnaci il 
+  risultato della somma tra i valori 10 e 20.
 */
 let sum = 10 + 20;
 console.log(sum);
 /* ESERCIZIO B
-  Crea una variabile chiamata "random" e assegnaci un numero casuale tra 0 e 20 (deve essere generato dinamicamente a ogni esecuzione).
+  Crea una variabile chiamata "random" e assegnaci un 
+  numero casuale tra 0 e 20 (deve essere generato 
+  dinamicamente a ogni esecuzione).
 */
 let random = Math.round(Math.random() * 20);
 console.log(random);
 /* ESERCIZIO C
-  Crea una variabile chiamata "me" e assegnaci un oggetto contenente le seguenti proprietà: name = il tuo nome, surname = il tuo cognome, age = la tua età.
+  Crea una variabile chiamata "me" e assegnaci un 
+  oggetto contenente le seguenti proprietà: 
+  name = il tuo nome, 
+  surname = il tuo cognome, 
+  age = la tua età.
 */
 let me = {
   name: "Lorenzo",
@@ -29,32 +36,42 @@ let me = {
 };
 console.log(me);
 /* ESERCIZIO D
-  Crea del codice per rimuovere programmaticamente la proprietà "age" dall'oggetto precedentemente creato.
+  Crea del codice per rimuovere programmaticamente la 
+  proprietà "age" dall'oggetto precedentemente creato.
 */
 delete me.age;
 console.log(me);
 /* ESERCIZIO E
-  Crea del codice per aggiungere programmaticamente all'oggetto precedentemente creato un array chiamato "skills", contenente i linguaggi di programmazione che conosci.
+  Crea del codice per aggiungere programmaticamente 
+  all'oggetto precedentemente creato un array 
+  chiamato "skills", contenente i linguaggi di 
+  programmazione che conosci.
 */
 me.skills = ["html", "css", "js"];
 console.log(me);
 
 /* ESERCIZIO F
-  Crea un pezzo di codice per aggiungere un nuovo elemento all'array "skills" contenuto nell'oggetto "me".
+  Crea un pezzo di codice per aggiungere un nuovo 
+  elemento all'array "skills" contenuto nell'oggetto 
+  "me".
 */
 me.skills.push("new skill");
 console.log(me);
 
 /* ESERCIZIO G
-  Crea un pezzo di codice per rimuovere programmaticamente l'ultimo elemento dall'array "skills" contenuto nell'oggetto "me".
+  Crea un pezzo di codice per rimuovere 
+  programmaticamente l'ultimo elemento dall'array 
+  "skills" contenuto nell'oggetto "me".
 */
+
 me.skills.pop();
 console.log(me);
 
 // Funzioni
 
 /* ESERCIZIO 1
-  Crea una funzione chiamata "dice": deve generare un numero casuale tra 1 e 6.
+  Crea una funzione chiamata "dice": deve generare un 
+  numero casuale tra 1 e 6.
 */
 let dice = () => {
   while (true) {
@@ -67,20 +84,24 @@ let dice = () => {
 };
 console.log(dice());
 /* ESERCIZIO 2
-  Crea una funzione chiamata "whoIsBigger" che riceve due numeri come parametri e ritorna il maggiore dei due.
+  Crea una funzione chiamata "whoIsBigger" che riceve 
+  due numeri come parametri e ritorna il maggiore dei 
+  due.
 */
-let num1 = 44;
-let num2 = 60;
+let num1 = Math.round(Math.random() * 100);
+let num2 = Math.round(Math.random() * 100);
 let whoIsBigger = (x, y) => {
   if (x > y) {
-    console.log(x);
+    console.log(`${x} è maggiore di ${y}`);
   } else {
-    console.log(y);
+    console.log(`${y} è maggiore di ${x}`);
   }
 };
 whoIsBigger(num1, num2);
 /* ESERCIZIO 3
-  Crea una funzione chiamata "splitMe" che riceve una stringa come parametro e ritorna un'array contenente ogni parola della stringa.
+  Crea una funzione chiamata "splitMe" che riceve una 
+  stringa come parametro e ritorna un'array contenente 
+  ogni parola della stringa.
 
   Es.: splitMe("I love coding") => ritorna ["I", "Love", "Coding"]
 */
@@ -91,11 +112,14 @@ let splitMe = (str) => {
 };
 console.log(splitMe(string));
 /* ESERCIZIO 4
-  Crea una funzione chiamata "deleteOne" che riceve una stringa e un booleano come parametri.
-  Se il valore booleano è true la funzione deve ritornare la stringa senza il primo carattere, altrimenti la deve ritornare senza l'ultimo.
+  Crea una funzione chiamata "deleteOne" che riceve 
+  una stringa e un booleano come parametri.
+  Se il valore booleano è true la funzione deve 
+  ritornare la stringa senza il primo carattere, 
+  altrimenti la deve ritornare senza l'ultimo.
 */
 let strEs4 = "linea di testo";
-let boolean = false;
+let boolean = true;
 let deleteOne = (bool, str) => {
   if (bool) {
     let cut = str.slice(1);
@@ -107,14 +131,15 @@ let deleteOne = (bool, str) => {
 };
 console.log(deleteOne(boolean, strEs4));
 /* ESERCIZIO 5
-  Crea una funzione chiamata "onlyLetters" che riceve una stringa come parametro e 
+  Crea una funzione chiamata "onlyLetters" che riceve 
+  una stringa come parametro e 
   la ritorna eliminando tutte le cifre numeriche.
 
   Es.: onlyLetters("I have 4 dogs") => ritorna "I have dogs"
 */
 let strEs5 = "I have 4 dogs";
 let onlyLetters = (str) => {
-  let newStr = strEs5.replace(/[0-9]/g, "");
+  let newStr = str.replace(/[0-9]/g, "");
   return newStr;
 };
 
@@ -122,18 +147,41 @@ console.log(onlyLetters(strEs5));
 /* ESERCIZIO 6
   Crea una funzione chiamata "isThisAnEmail" che riceve una stringa come parametro e ritorna true se la stringa è un valido indirizzo email.
 */
-let email = "oznerol@gmail.com";
+let email = "lorenzo@gmail.com";
+let splitAt = email.split("@");
+let splitDot = email.split(".");
+let mailIsValid = false;
+
+// console.log(splitAt.length, splitDot);
+// console.log(splitDot[1].length);
 let isThisAnEmail = (mail) => {
-  if (mail.indexOf("@") > -1 && mail.indexOf(".") > -1) {
-    console.log(mail + " is a valid email adress");
+  for (i = 0; i < 2; i++) {
+    if (
+      splitAt[i].length > 0 &&
+      splitDot[i].length > 0 &&
+      mail.indexOf("@") > 0 &&
+      mail.indexOf(".") > 0
+    ) {
+      mailIsValid = true;
+    } else {
+      mailIsValid = false;
+    }
+  }
+  if (mailIsValid) {
+    // console.log(splitAt[1].length);
+    // console.log(splitDot[1].length);
+    // console.log(mail.indexOf("@"));
+    // console.log(mail.indexOf("."));
+    console.log(`${mail} is a valid email`);
   } else {
-    console.log(mail + " is not a valid email adress");
+    console.log(`${mail} is not a valid email`);
   }
 };
 
 isThisAnEmail(email);
 /* ESERCIZIO 7
-  Scrivi una funzione chiamata "whatDayIsIt" che ritorna il giorno della settimana corrente.
+  Scrivi una funzione chiamata "whatDayIsIt" che ritorna 
+  il giorno della settimana corrente.
 */
 let whatDayIsIt = () => {
   let day = String(new Date());
@@ -160,18 +208,20 @@ let diceRollRes = {
   sum: 0,
   values: [],
 };
-let timesToRoll = 3;
+
 let rollTheDices = (num) => {
-  for (i = 0; i < 3; i++) {
+  for (i = 0; i < num; i++) {
     let rollRes = dice();
     diceRollRes.sum += rollRes;
     diceRollRes.values.push(rollRes);
   }
   console.log(diceRollRes);
 };
-rollTheDices(timesToRoll);
+rollTheDices(4);
 /* ESERCIZIO 9
-  Scrivi una funzione chiamata "howManyDays" che riceve una data come parametro e ritorna il numero di giorni trascorsi da tale data.
+  Scrivi una funzione chiamata "howManyDays" che riceve 
+  una data come parametro e ritorna il numero di giorni 
+  trascorsi da tale data.
 */
 let dateToCheck = new Date("2023-11-01");
 let today = new Date();
@@ -180,7 +230,11 @@ let howManyDays = (date) => {
   let dayDif = timeDif / (1000 * 3600 * 24);
   return dayDif;
 };
-console.log(Math.floor(howManyDays(dateToCheck)));
+console.log(
+  `sono passati ${Math.floor(
+    howManyDays(dateToCheck)
+  )} giorni dal ${dateToCheck}`
+);
 
 /* ESERCIZIO 10
   Scrivi una funzione chiamata "isTodayMyBirthday" che deve ritornare true se 
@@ -189,13 +243,13 @@ console.log(Math.floor(howManyDays(dateToCheck)));
 
 let isTodayMyBirthday = () => {
   if (today.getDate() === 31 && today.getMonth() + 1 === 12) {
-    console.log("today is your birthday");
+    return true;
   } else {
-    console.log("today is not your birthday");
+    return false;
   }
 };
 
-isTodayMyBirthday();
+console.log(isTodayMyBirthday());
 // Arrays & Oggetti
 /* Questo array viene usato per gli esercizi. Non modificarlo. */
 
@@ -330,11 +384,11 @@ let Es11obj = {
 };
 
 let propertyToDelete = "citta";
-let deleteProp = (str) => {
-  delete Es11obj[str];
-  console.log(Es11obj);
+let deleteProp = (obj, str) => {
+  delete obj[str];
+  console.log(obj);
 };
-deleteProp(propertyToDelete);
+deleteProp(Es11obj, propertyToDelete);
 /* ESERCIZIO 12
   Scrivi una funzione chiamata "newestMovie" che trova il film più 
   recente nell'array "movies" fornito.
@@ -350,7 +404,9 @@ let newestMovie = () => {
 };
 console.log(newestMovie());
 /* ESERCIZIO 13
-  Scrivi una funzione chiamata countMovies che ritorna il numero di film contenuti nell'array "movies" fornito.
+  Scrivi una funzione chiamata countMovies che ritorna 
+  il numero di film contenuti nell'array "movies" 
+  fornito.
 */
 let countMovies = () => {
   console.log(movies.length);
@@ -426,9 +482,10 @@ let searchAndDivide = () => {
 };
 searchAndDivide();
 /* ESERCIZIO 19
-  Scrivi una funzione chiamata "removeIndex" che riceve un numero 
-  come parametro e ritorna l'array "movies" fornito privo 
-  dell'elemento nella posizione ricevuta come parametro.
+  Scrivi una funzione chiamata "removeIndex" che riceve 
+  un numero come parametro e ritorna l'array "movies" 
+  fornito privo dell'elemento nella posizione ricevuta 
+  come parametro.
 */
 let indexToRemove = 7;
 let removeIndex = (num) => {
@@ -440,7 +497,8 @@ removeIndex(indexToRemove);
 // DOM (nota: gli elementi che selezionerai non si trovano realmente nella pagina)
 
 /* ESERCIZIO 20
-  Scrivi una funzione per selezionare l'elemento dotato di id "container" all'interno della pagina.
+  Scrivi una funzione per selezionare l'elemento dotato 
+  di id "container" all'interno della pagina.
 */
 let selectContainer = () => {
   let container = document.getElementById("container");
@@ -554,18 +612,21 @@ halfTree(treeHeight);
 let numberToCheck = Math.floor(Math.random() * 100);
 
 let isItPrime = () => {
+  let check = true;
   if (numberToCheck === 1) {
     console.log(`1 non e ne primo ne composto`);
   } else if (numberToCheck > 1) {
     for (let i = 2; i < numberToCheck; i++) {
-      if (numberToCheck % i == 0) {
-        console.log(`${numberToCheck} non è primo`);
-        break;
-      } else {
-        console.log(`${numberToCheck} è primo`);
+      if (numberToCheck % i === 0) {
+        check = false;
         break;
       }
     }
+  }
+  if (check) {
+    console.log(`${numberToCheck} è primo`);
+  } else {
+    console.log(`${numberToCheck} non è primo`);
   }
 };
 isItPrime();
